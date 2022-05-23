@@ -183,4 +183,28 @@ public class Solution {
         ans.append(temp).append(tempNum);
         return ans.length() > S.length() ? S : String.valueOf(ans);
     }
+
+
+    public String longestNiceSubstring(String s) {
+        int maxLength = 0;
+        int startIndex = 0;
+        int length = s.length();
+
+        for(int i = 0 ; i < length ; i++){
+            int lower = 0;
+            int upper = 0;
+            for(int j = 0 ; j < length ; j++){
+                if (Character.isLowerCase(s.charAt(j))) {
+                    lower |= 1 << (s.charAt(j) - 'a');
+                } else {
+                    upper |= 1 << (s.charAt(j) - 'A');
+                }
+                if (lower == upper && j - i + 1 > maxLength) {
+                    startIndex = i;
+                    maxLength = j - i + 1;
+                }
+            }
+        }
+        return s.substring(startIndex, startIndex + maxLength);
+    }
 }
