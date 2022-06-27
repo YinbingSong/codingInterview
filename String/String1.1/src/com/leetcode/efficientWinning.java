@@ -54,4 +54,23 @@ public class efficientWinning {
         }
         return val;
     }
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> lists = new LinkedList<>();
+        int length = nums.length;
+        if (length < 3) return lists;
+        for (int i = 0; i < length; i++) {
+            for (int j = i+1; j < length; j++) {
+                for (int k = j+1; k < length; k++) {
+                    if (nums[i] + nums[j] + nums[k] == 0) {
+                        LinkedList<Integer> integers = new LinkedList<>();
+                        integers.add(i);
+                        integers.add(j);
+                        integers.add(k);
+                        lists.add(integers);
+                    }
+                }
+            }
+        }
+        return lists;
+    }
 }
