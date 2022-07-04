@@ -1,7 +1,6 @@
 package com.leetcode;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Solution {
@@ -236,5 +235,29 @@ public class Solution {
             res %= MOD;
         }
         return res;
+    }
+
+    public List<List<Integer>> minimumAbsDifference(int[] arr) {
+        int length = arr.length;
+        Arrays.sort(arr);
+        int best = Integer.MAX_VALUE;
+        ArrayList<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < length -1; i++) {
+            int delta = arr[i + 1] - arr[i];
+            if (delta < best){
+                best = delta;
+                ans.clear();
+                ArrayList<Integer> integers = new ArrayList<>();
+                integers.add(arr[i]);
+                integers.add(arr[i+1]);
+                ans.add(integers);
+            }else if (delta == best){
+                ArrayList<Integer> integers = new ArrayList<>();
+                integers.add(arr[i]);
+                integers.add(arr[i+1]);
+                ans.add(integers);
+            }
+        }
+        return ans;
     }
 }
