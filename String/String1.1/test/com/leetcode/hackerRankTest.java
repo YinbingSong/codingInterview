@@ -17,4 +17,12 @@ public class hackerRankTest extends TestCase {
         list.add(1);
         hackerRank.plusMinus(list);
     }
+    public void testIsPangram(){
+        ArrayList<String> list = new ArrayList<>();
+        list.add("we promptly judged antique ivory buckles for the next prize");
+        list.add("we promptly judged antique ivory buckles for the prizes");
+        list.add("the quick brown fox jumps over the lazy dog");
+        list.add("the quick brown fox jump over the lazy dog");
+        System.out.println(hackerRank.isPangram(list));
+    }
 }
