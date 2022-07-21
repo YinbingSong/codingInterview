@@ -88,4 +88,26 @@ public class hackerRank {
         return keyList.size();
     }
 
+    //Write a function to swap two integers without temporary variable
+    public void swapTwoIntegers(int[] a){
+        a[0] = a[0] + a[1];
+        a[1] = a[0] - a[1];
+        a[0] = a[0] - a[1];
+    }
+
+    /*Write a function that returns an array with each index being the product of
+    all the other numbers in the input array except the one with that index.*/
+    public int[] function(int[] a){
+        int length = a.length;
+        int[] res = new int[length];
+        int x = 1;
+        for (int k : a) {
+            x = x * k;
+        }
+        for (int j = 0; j < length; j++) {
+            res[j] = x / a[j];
+        }
+        return res;
+    }
+
 }
